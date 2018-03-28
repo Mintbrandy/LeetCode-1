@@ -54,5 +54,26 @@ Both numbers with value 2 are both considered as second maximum.
 ## 代码
 
 ``` java
-
+class Solution {
+    public int thirdMax(int[] nums) {
+        long first = Long.MIN_VALUE;
+        long second = Long.MIN_VALUE;
+        long third = Long.MIN_VALUE;
+        for (int i : nums) {
+            if (i > first) {
+                third = second;
+                second = first;
+                first = i;
+            } else if (i == first) {
+            } else if (i > second) {
+                third = second;
+                second = i;
+            } else if (i == second) {
+            } else if (i > third) {
+                third = i;
+            }
+        }
+        return third == Long.MIN_VALUE ? (int) first : (int) third;
+    }
+}
 ```
